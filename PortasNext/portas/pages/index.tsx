@@ -20,7 +20,7 @@ export default function Formulario() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="flex">
-      <Cartao bgcolor="#c8392c">
+      <Cartao bgcolor="bg-red-500">
         <h1>Monty Hall</h1>
       </Cartao>
       <Cartao >
@@ -35,7 +35,7 @@ export default function Formulario() {
           value={comPresente}
           onChange={novoLugarPresente => setComPresente(novoLugarPresente)}/>
         </Cartao>
-        <Cartao bgcolor="#28a085">
+        <Cartao bgcolor="bg-green-600">
           <Link href={`/jogo/${quantidadePortas}/${comPresente}`}>
             <h2 className="flex-1 m-0 flex">Iniciar</h2>
           </Link>
