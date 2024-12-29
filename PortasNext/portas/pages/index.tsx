@@ -1,30 +1,49 @@
 "use client";
 
 
-import { useState } from "react";
+import { use, useState } from "react";
 import Porta from "../Components/Porta";
 import Presente from "../Components/Presente";
 import PortaModel from "../Model/porta";
 import { atualizarPortas, criarPortas } from "../functions/portas";
+import Cartao from "@/Components/Cartao";
+import Link from 'next/link'
+import EntradaNumerica from "@/Components/EntradaNumerica";
 
-export default function Home() {
-  const  [p1,setP1] = useState(new PortaModel(1))
-  const [texto, setTexto] = useState("...")
 
-  const [portas,setPortas] = useState(criarPortas(3,2))
+export default function Formulario() {
 
-  function renderizarPortas(){
+  const [quantidadePortas, setQtDePortas] = useState(3);
+  const [comPresente, setComPresente] = useState(1);
 
-    return portas.map((porta) => {
-      return (
-        <Porta value={porta} key={porta.numero} onChange={novaPorta => setPortas(atualizarPortas(portas,novaPorta))}></Porta>
-      )
-    })
-  }
 
   return (
-    <div className="flex">
-      <h1>Formulário de início</h1>
+    <div className="flex flex-col justify-center items-center h-screen">
+      <div className="flex">
+      <Cartao bgcolor="#c8392c">
+        <h1>Monty Hall</h1>
+      </Cartao>
+      <Cartao >
+        <EntradaNumerica text="Qtde Portas" 
+        value={quantidadePortas} 
+        onChange={novaQtde => setQtDePortas(novaQtde)}/>
+      </Cartao>
+      </div>
+      <div className="flex">
+        <Cartao>
+          <EntradaNumerica text="Porta com presente" 
+          value={comPresente}
+          onChange={novoLugarPresente => setComPresente(novoLugarPresente)}/>
+        </Cartao>
+        <Cartao bgcolor="#28a085">
+          <Link href={`/jogo/${quantidadePortas}/${comPresente}`}>
+            <h2 className="flex-1 m-0 flex">Iniciar</h2>
+          </Link>
+        </Cartao>
+      </div>
+      
+     
+
        
 
     </div>
