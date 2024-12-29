@@ -1,11 +1,7 @@
 "use client";
 
 
-import { use, useState } from "react";
-import Porta from "../Components/Porta";
-import Presente from "../Components/Presente";
-import PortaModel from "../Model/porta";
-import { atualizarPortas, criarPortas } from "../functions/portas";
+import {useState } from "react";
 import Cartao from "@/Components/Cartao";
 import Link from 'next/link'
 import EntradaNumerica from "@/Components/EntradaNumerica";
@@ -36,7 +32,7 @@ export default function Formulario() {
           onChange={novoLugarPresente => setComPresente(novoLugarPresente)}/>
         </Cartao>
         <Cartao bgcolor="bg-green-600">
-          <Link href={`/jogo/${quantidadePortas}/${comPresente}`}>
+          <Link href={`/jogo/${quantidadePortas}/${comPresente}`} passHref>
             <h2 className="flex-1 m-0 flex">Iniciar</h2>
           </Link>
         </Cartao>

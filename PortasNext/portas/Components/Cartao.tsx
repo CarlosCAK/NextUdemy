@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 interface CartaoProps {
     bgcolor? : string,
-    children? : any
+    children? : ReactNode
 }
 
 const Cartao = (props : CartaoProps) => {
