@@ -17,9 +17,10 @@ const resultado = () => {
         <Estatistica texto="Perguntas" valor={total} 
           corFundo='' />
         <Estatistica texto="Certas" valor={certas}
-          corFundo='green-400' />
+          corFundo='bg-green-400' />
         <Estatistica texto="Percentual" valor={`${percentual}%`}
-        corFundo='orange-700' />
+            corFundo='bg-orange-500' />
+
       </div>
       <Botao href='/' texto='Tentar Novamente'/>
 
