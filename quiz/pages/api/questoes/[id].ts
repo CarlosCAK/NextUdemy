@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import questoes from "../bancoDeQuestoes";
 
-export default (req, res)  => {
+export default (req : any, res : any)  => {
       const idSelecionado = +req.query.id
 
       const unicaQuestaoOuNada = questoes.filter(questao => questao.id === idSelecionado)

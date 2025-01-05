@@ -7,8 +7,8 @@ const resultado = () => {
 
   const router = useRouter()
 
-  const total = +router.query.total
-  const certas = +router.query.certas
+  const total = router.query.total ? +router.query.total : 0
+  const certas = router.query.certas ? +router.query.certas : 0
   const percentual = Math.round((certas / total) * 100)
   return (
     <div className='flex flex-col justify-center items-center h-screen text-3xl '>
