@@ -28,8 +28,12 @@ export default class RespostaModel{
     }
     revelar(){
         const revelada = true;
-        return new RespostaModel(this.#valor, this.#certa,revelada)
+        return new RespostaModel(this.#valor, this.#certa, revelada)
     }
+    static criarUsandoModelo(obj : RespostaModel): RespostaModel{
+        return new RespostaModel(obj.valor, obj.certa, obj.revelada)
+    }
+
     paraObjeto(){
         return{
             valor : this.#valor,

@@ -26,7 +26,7 @@ const Questao = (props : QuestaoProps) => {
       return questao.respostas.map((resposta,i ) => {
         return (
         <Resposta 
-        key={i}
+        key={`${questao.id}-${i}`}
         letra={letras[i].valor} 
         indice={i} 
         corFundoLetra={letras[i].cor}
@@ -38,7 +38,7 @@ const Questao = (props : QuestaoProps) => {
   return (
     <div className="flex flex-col items-center">
         <Enunciado texto={props.valor.enunciado}/>
-        <Temporizador duracao={props.tempoParaResposta ?? 10} 
+        <Temporizador key={questao.id} duracao={props.tempoParaResposta ?? 10} 
         tempoEsgotado={props.tempoEsgotado}/>
         {renderizarRespostas()}
       </div>
