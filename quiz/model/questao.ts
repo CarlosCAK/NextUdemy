@@ -33,9 +33,22 @@ export default class QuestaoModel {
         }
         return false;
     }
+    get naoRespondida(){
+        return !this.respondida
+    }
     embaralharRespostas() : QuestaoModel{
         let respostasEmbaralhadas = embaralhar(this.#respostas)
         return new QuestaoModel(this.#id, this.#enunciado,respostasEmbaralhadas,this.#acertou)
+    }
+    respoderCom(indice : number){
+        const acertou = this.respostas[indice]?.certa;
+        const respostas = this.#respostas.map((resposta, i) => {
+            const respostaSelecionada = indice === i;
+            const deveRevelar = respostaSelecionada || resposta.certa
+            return deveRevelar ? resposta.revelar() : resposta
+        })
+       
+        return new QuestaoModel(this.#id, this.#enunciado, respostas, acertou)
     }
 
     paraObjeto(){
@@ -43,7 +56,8 @@ export default class QuestaoModel {
             id : this.#id,
             enunciado :this.#enunciado,
             respostas : this.#respostas.map(respota => respota.paraObjeto()),
-            acertou : this.#acertou
+            acertou : this.#acertou,
+            respondida: this.respondida
         }
     }
 }
