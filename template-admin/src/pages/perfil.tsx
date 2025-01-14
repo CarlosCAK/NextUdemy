@@ -6,7 +6,7 @@ import React from 'react'
 const notificacoes = () => {
 
   return (
-    <Layout subtitulo='Aqui você irá gerenicar as suas notificações' titulo='Notificacoes'>
+    <Layout subtitulo='Administre as suas informações do usuário' titulo='Perfil do usuário'>
         <h3>Conteúdo</h3>
 
     </Layout>
